@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Find Your Crop{% endblock %}
+
+{% block content %}
+<section class="page">
+  <h1>🌱 Find Your Crop</h1>
+  <p class="lead">
+    Enter your soil nutrient levels and climate conditions, then click
+    <strong>Predict</strong> to get the most suitable crop recommendation.
+  </p>
+
+  {% if error %}
+  <div class="alert alert-error">{{ error }}</div>
+  {% endif %}
+
+  {% if prediction %}
+  <div class="result-card">
+    <span class="result-emoji">🌾</span>
+    <div>
+      <p class="result-label">Recommended crop</p>
+      <p class="result-value">{{ prediction }}</p>
+    </div>
+  </div>
+  {% endif %}
+
+  <form method="post" class="predict-form">
+    {% for f in fields %}
+    <div class="form-row">
+      <label for="{{ f.key }}">{{ f.label }}</label>
+      <div class="input-wrap">
+        <input type="number" id="{{ f.key }}" name="{{ f.key }}"
+               min="{{ f.min }}" max="{{ f.max }}" step="{{ f.step }}"
+               value="{{ inputs[f.key] }}" required>
+        <span class="unit">{{ f.unit }}</span>
+      </div>
+      <small class="range">range: {{ f.min }}–{{ f.max }}</small>
+    </div>
+    {% endfor %}
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">🔍 Predict</button>
+      <a href="{{ url_for('find_your_crop') }}" class="btn btn-secondary">Reset</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+# OptiCrop - Python dependencies
+# Tested with Python 3.10 / 3.11 / 3.13
+
+# Web framework
+Flask==3.0.3
+
+# Machine learning
+scikit-learn==1.5.2
+
+# Data handling
+pandas==2.2.3
+numpy==2.1.1
+
+# Visualization (EDA)
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Jupyter notebook support
+ipykernel==6.29.5
+notebook==7.2.2
+
+# Utilities
+joblib==1.4.2

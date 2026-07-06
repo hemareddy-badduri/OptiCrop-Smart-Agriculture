@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>🌾 OptiCrop</h1>
+    <p class="tagline">Smart Agricultural Production Optimization Engine</p>
+    <p class="lead">
+      Get data-driven crop recommendations in seconds. OptiCrop analyses your soil
+      nutrients and climate conditions to suggest the most suitable crop for
+      cultivation — improving yield, reducing waste, and supporting sustainable farming.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('find_your_crop') }}">🌱 Find Your Crop</a>
+      <a class="btn btn-ghost" href="{{ url_for('about') }}">Learn more</a>
+    </div>
+    {% if not model_ready %}
+    <p class="warn">⚠️ Trained model not found. Run <code>python src/train_models.py</code> first.</p>
+    {% endif %}
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="features">
+  <div class="feature">
+    <div class="feature-icon">🧪</div>
+    <h3>Soil-aware</h3>
+    <p>Uses N, P, K and pH to match crops to your land's nutrient profile.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🌤️</div>
+    <h3>Climate-aware</h3>
+    <p>Accounts for temperature, humidity and rainfall for season-ready advice.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🤖</div>
+    <h3>ML-powered</h3>
+    <p>Trained on Logistic Regression, KNN, Decision Tree &amp; Random Forest.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⚡</div>
+    <h3>Instant</h3>
+    <p>Get a recommendation in real time, right in your browser.</p>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h2>How it works</h2>
+  <ol>
+    <li><strong>Enter</strong> your soil and climate parameters.</li>
+    <li><strong>Predict</strong> — our trained model analyses 7 key features.</li>
+    <li><strong>Grow</strong> the crop best suited to your conditions.</li>
+  </ol>
+</section>
+{% endblock %}

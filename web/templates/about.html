@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section class="page">
+  <h1>About OptiCrop</h1>
+  <p class="lead">
+    OptiCrop is a machine-learning-powered smart agricultural recommendation
+    system that helps farmers, researchers, and agribusinesses choose the most
+    suitable crop for a given set of soil and climate conditions.
+  </p>
+
+  <h2>The problem</h2>
+  <p>
+    Poor crop selection, inefficient resource use, and changing environmental
+    conditions reduce farming productivity. Farmers often cannot easily determine
+    which crop fits their soil nutrients and local climate, leading to lower
+    yields and financial losses.
+  </p>
+
+  <h2>Our approach</h2>
+  <p>
+    OptiCrop analyses seven key parameters — Nitrogen (N), Phosphorous (P),
+    Potassium (K), temperature, humidity, soil pH, and rainfall — and uses
+    supervised machine learning to predict the best-matching crop. We compare
+    several algorithms (Logistic Regression, K-Nearest Neighbors, Decision Tree,
+    Random Forest) and deploy the best-performing one. K-Means clustering is
+    also used to discover natural groupings of environmental conditions.
+  </p>
+
+  <h2>Features analysed</h2>
+  <ul class="feature-grid">
+    <li><strong>N</strong> — Nitrogen content (kg/ha)</li>
+    <li><strong>P</strong> — Phosphorous content (kg/ha)</li>
+    <li><strong>K</strong> — Potassium content (kg/ha)</li>
+    <li><strong>temperature</strong> — in °C</li>
+    <li><strong>humidity</strong> — relative %</li>
+    <li><strong>ph</strong> — soil pH value</li>
+    <li><strong>rainfall</strong> — in mm</li>
+  </ul>
+
+  <h2>Impact</h2>
+  <p>
+    By recommending the right crop for the right conditions, OptiCrop supports
+    higher yields, optimised use of water and fertilisers, reduced crop-failure
+    risk, and more sustainable, precision-agriculture practices.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="{{ url_for('find_your_crop') }}">🌱 Try it now</a>
+    <a class="btn btn-ghost" href="{{ url_for('home') }}">← Back home</a>
+  </div>
+</section>
+{% endblock %}
